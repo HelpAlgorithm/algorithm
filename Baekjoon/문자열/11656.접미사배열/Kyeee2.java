@@ -21,6 +21,7 @@ public class Kyeee2 {
 		}
 		
 		// 사전순으로 버블정렬
+		/*
 		for(int i = 0; i < words.length - 1; i++) {
 			for(int j = 0; j < words.length - 1; j++) {
 				if(words[j].compareTo(words[j + 1]) > 0) {
@@ -30,6 +31,9 @@ public class Kyeee2 {
 				}
 			}
 		}
+		*/
+		
+		Arrays.sort(words, (w1, w2) -> w1.compareTo(w2));		
 		
 		for(String word: words) {
 			System.out.println(word);
