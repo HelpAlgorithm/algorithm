@@ -1,37 +1,44 @@
-import java.io.*;
 import java.util.*;
 
 class Solution {
 
-    public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = new int[progresses.length];
+    static class Document {
+        int priority;
+        int location;
 
-        int idx = 0;
-        int p = 0;
+        public Document(int priority, int location) {
+            this.priority = priority;
+            this.location = location;
+        }
+    }   
 
-        boolean[] isComp = new boolean[progresses.length];
-        while(true) {
-            for(int i=p;i<progresses.length;i++) {
-                progresses[i] += speeds[i];
-                if(i==0 && progresses[i] >= 100) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
-                    continue;
-                }
-                if(progresses[i] >= 100 && isComp[i-1]) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
-                }
-            }
-            if(answer[idx] != 0) {
-                idx++;
-            }
-            if(p==progresses.length) break;
+    public int solution(int[] priorities, int location) {
+        int answer = 0;
+        Queue<Document> q = new LinkedList<>();
+
+        for(int i=0;i<priorities.length;i++) {
+            q.offer(new Document(priorities[i], i));
         }
 
+        int cnt = 0;
+        while(!q.isEmpty()) {            
+            Document temp = q.poll();
+            for(Document d: q) {
+                if(d.priority > temp.priority) {
+                    q.offer(temp);
+                    temp=null;
+                    break;
+                }
+            }
+            if(temp!=null) {
+                cnt++;
+                if(temp.location == location) {
+                    return cnt;
+                }
+            }
 
-        return Arrays.copyOf(answer,idx);
+        }
+        answer = cnt;
+        return answer;
     }
 }
