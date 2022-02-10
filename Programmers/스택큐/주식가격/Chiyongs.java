@@ -1,37 +1,23 @@
-import java.io.*;
-import java.util.*;
-
 class Solution {
+    public int[] solution(int[] prices) {
+        int[] answer = new int[prices.length];
 
-    public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = new int[progresses.length];
-
-        int idx = 0;
-        int p = 0;
-
-        boolean[] isComp = new boolean[progresses.length];
-        while(true) {
-            for(int i=p;i<progresses.length;i++) {
-                progresses[i] += speeds[i];
-                if(i==0 && progresses[i] >= 100) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
-                    continue;
+        for(int i=0;i<prices.length;i++) {
+            for(int j=i+1;j<prices.length;j++) {
+                if(prices[i] <= prices[j]) {
+                    answer[i]++;
                 }
-                if(progresses[i] >= 100 && isComp[i-1]) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
+                else {
+                	// 주가가 떨어졌어도 1초간 유지된 것이므로
+                    answer[i]++;
+                    break;
                 }
             }
-            if(answer[idx] != 0) {
-                idx++;
+            if(i==prices.length-1) {
+                answer[i] = 0;
             }
-            if(p==progresses.length) break;
         }
 
-
-        return Arrays.copyOf(answer,idx);
+        return answer;
     }
 }
