@@ -1,37 +1,60 @@
-import java.io.*;
 import java.util.*;
 
 class Solution {
 
-    public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = new int[progresses.length];
+    static int N,R;
+    static boolean[] isSelected;
+    static char[] choosed;
+    static Set<Integer> set = new HashSet<>();
+    static String input;
 
-        int idx = 0;
-        int p = 0;
+    public int solution(String numbers) {
+        int answer = 0;
 
-        boolean[] isComp = new boolean[progresses.length];
-        while(true) {
-            for(int i=p;i<progresses.length;i++) {
-                progresses[i] += speeds[i];
-                if(i==0 && progresses[i] >= 100) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
-                    continue;
-                }
-                if(progresses[i] >= 100 && isComp[i-1]) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
-                }
-            }
-            if(answer[idx] != 0) {
-                idx++;
-            }
-            if(p==progresses.length) break;
+        input = numbers;
+        N = numbers.length();
+        isSelected = new boolean[N];        
+
+        for(int i=1;i<=N;i++) {
+            R = i;
+            choosed = new char[R];
+            permutation(0, 0);
         }
 
+        answer = set.size();
 
-        return Arrays.copyOf(answer,idx);
+        return answer;
+    }
+
+    public static void permutation(int cnt, int flag) {
+        if(cnt == R) {
+            String s = "";
+            s = String.valueOf(choosed);
+            System.out.println(s);
+            if(isPrime(s)) set.add(Integer.parseInt(s));
+            return;
+        }
+
+        for(int i=0;i<N;i++) {
+            if((flag & 1<<i)!=0) continue;
+
+            choosed[cnt] = input.charAt(i);
+            permutation(cnt+1, flag | 1 << i);
+        }
+    }   
+
+    static boolean isPrime(String s) {
+        int number = Integer.parseInt(s);
+        if(number == 1 || number == 0) {
+            return false;
+        }
+
+        for(int i=2;i<number;i++) {
+            if(number % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
