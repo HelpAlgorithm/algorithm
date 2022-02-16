@@ -1,6 +1,10 @@
 import java.util.*;
 
 class Solution {
+	
+	/**
+	 * 들어온 문자열 내에서 순열을 돌려서 소수라면 Set에 넣는다.(중복제거)
+	 */
 
     static int N,R;
     static boolean[] isSelected;
