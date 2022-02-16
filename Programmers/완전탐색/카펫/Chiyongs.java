@@ -1,37 +1,27 @@
-import java.io.*;
-import java.util.*;
-
 class Solution {
 
-    public int[] solution(int[] progresses, int[] speeds) {
-        int[] answer = new int[progresses.length];
+    static int[] answer;
 
-        int idx = 0;
-        int p = 0;
+    public int[] solution(int brown, int yellow) {
+        answer = new int[2];
 
-        boolean[] isComp = new boolean[progresses.length];
-        while(true) {
-            for(int i=p;i<progresses.length;i++) {
-                progresses[i] += speeds[i];
-                if(i==0 && progresses[i] >= 100) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
-                    continue;
-                }
-                if(progresses[i] >= 100 && isComp[i-1]) {
-                    isComp[i] = true;
-                    answer[idx]++;
-                    p++;
+        outer:while(true) {
+            int r = 0;
+            int c = 0;
+            for(int x=3;x<brown/2;x++) {
+                for(int y=3;y<brown/2;y++) {
+                    int result = 2*(x-1) + 2*(y-1);
+                    int cnt = (y-2) * (x-2);
+                    if(result == brown && cnt == yellow) {
+                        answer[0] = y;
+                        answer[1] = x;
+                        break outer;
+                    }
                 }
             }
-            if(answer[idx] != 0) {
-                idx++;
-            }
-            if(p==progresses.length) break;
+
         }
 
-
-        return Arrays.copyOf(answer,idx);
+        return answer;
     }
 }
