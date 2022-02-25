@@ -1,8 +1,7 @@
-# HelpAlgorithm
+# HelpAlgorithm🤲
 SSAFY 7기 교육생 4명 (김다은, 김영은, 박윤진, 신치용)이서 진행하는 알고리즘 스터디입니다.
-<img src = "notion://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fpublic.notion-static.com%2Ff094460c-79de-4854-a992-cbeacbf476f1%2F%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-01-18_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_9.51.24.png?table=space&id=ca9d60c5-f330-43b6-b18d-cd630f5ad24f&width=40&userId=ef240664-cf95-462e-9634-324626939143&cache=v2">
 
-## 스터디 일정
+## 스터디 일정 🗓️
 평일 : 월, 수, 금 🕰 PM 20:30 ~ 22:00
 월요일과 수요일은 모각코 진행!
 금요일은 주차별 풀어온 코드에 대한 코드 리뷰와 공부 내용 공유
