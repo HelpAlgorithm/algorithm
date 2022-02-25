@@ -19,3 +19,6 @@ SSAFY 7기 교육생 4명 (김다은, 김영은, 박윤진, 신치용)이서 진
 5주차
 | 프로그래머스 - 정렬
 | 백준 1012, 2206
+
+## 멤버
+| [김다은](https://github.com/daeunblue) | [김영은](https://github.com/kyeee2) | [박윤진](https://github.com/YunjinPark97) | [신치용](https://github.com/chiyongs)| 
