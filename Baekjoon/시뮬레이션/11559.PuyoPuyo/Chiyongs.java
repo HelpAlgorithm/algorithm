@@ -15,7 +15,6 @@ public class Chiyongs {
 	static int[] dc = {0,0,-1,1};
 	static List<int[]> puyos;
 	static boolean[][] visited;
-	static boolean flag;
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -30,7 +29,6 @@ public class Chiyongs {
 		int tot = 0;
 		while(true) {
 			boolean isPopp = false;
-			flag = false;
 			visited = new boolean[12][6];
 			
 			for(int r=11;r>=0;r--) {
@@ -42,9 +40,7 @@ public class Chiyongs {
 							// 상하좌우로 연결된 뿌요가 4개 이상일 때
 							popp();
 							isPopp = true;
-						}
-						flag = false;
-						
+						}						
 					}
 				}
 			}
