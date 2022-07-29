@@ -94,3 +94,8 @@ local.properties
 
 # End of https://www.toptal.com/developers/gitignore/api/eclipse
 /build/
+
+*.iml
+*.xml
+
+.idea
